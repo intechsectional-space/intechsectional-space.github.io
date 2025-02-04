@@ -26,6 +26,7 @@ jobs:
 
       - name: "Generate metadata and build"
         run: |
+          export LC_ALL=en_US.UTF-8
           nix develop --command ./ci/metadata
           nix develop --command ./ci/build
 
