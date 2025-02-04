@@ -1,0 +1,39 @@
+name: Deploy live website
+
+on:
+  push:
+    branches:
+      - "main"
+
+
+concurrency:
+  group: "deploy"
+  cancel-in-progress: true
+
+
+permissions:
+  contents: write
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+
+      - name: "Install nix"
+        uses: cachix/install-nix-action@v30
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Generate metadata and build"
+        run: |
+          nix develop --command ./ci/metadata
+          nix develop --command ./ci/build
+
+      - name: "Deploy"
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./src/_site
+

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+cd src
+
+mkdir -p metadata
+
+./scripts/make-image-metadata
+./scripts/git-metadata
