@@ -180,7 +180,7 @@ main = do
 
         getResourceBody
           >>= applyAsTemplate ctx
-          >>= loadAndApplyTemplate "templates/default.html" ctx
+          >>= loadAndApplyTemplate "templates/homepage.html" ctx
           >>= lqipImages imageMetaData
           >>= relativizeUrls
 
