@@ -19,7 +19,7 @@ allMargin n       = margin  n n n n
 allPadding n      = padding n n n n
 allBorderRadius n = borderRadius n n n n
 
-margin0  = margin  (px 0) (px 0) (px 0) (px 0)
+margin0  = margin  (px 50) (px 50) (px 50) (px 50)
 padding0 = padding (px 0) (px 0) (px 0) (px 0)
 
 coreTextFont = fontFamily ["Urbanist"] [sansSerif]
@@ -28,24 +28,24 @@ titleFont    = fontFamily ["Urbanist"] [sansSerif]
 menuFont     = coreTextFont
 
 bgColour :: Color
-bgColour = "#fffbf0"
+bgColour = "#F6F5FE"
 
 selectionColour :: Color
-selectionColour = "#eaeaea"
+selectionColour = "#FFF0F0"
 
 textColour :: Color
-textColour = "#383838"
+textColour = "#47457D"
 
 softTextColour :: Color
-softTextColour = "#989888"
+softTextColour = "#20755E"
 
 linkColour :: Color
--- linkColour = "#c832ff"
--- linkColour = "#9a99dd"
+-- linkColour = "#EE7456"
+-- linkColour = "#A5A2EE"
 linkColour = darken 0.2 otherStrongColour
 
 otherStrongColour :: Color
-otherStrongColour = "#6232ff"
+otherStrongColour = "#FFA3A4"
 
 linkSoftColour :: Color
 linkSoftColour = bgColour
@@ -283,7 +283,7 @@ headings = do
     left (px (-15))
     top (px 10)
     color white
-    fontSize (em 0.5)
+    fontSize (em 0.2)
     monoFont
     paddingLeft (px 5)
     paddingRight (px 5)
@@ -295,7 +295,7 @@ headings = do
       fontSize $ em 0.8
 
     h2 ? do
-      fontSize $ em 2.2
+      fontSize $ em 1.8
 
     h3 ? do
       fontSize     $ em 1.9
@@ -324,7 +324,6 @@ headings = do
     marginTop (px 50)
     color (darken 0.2 otherStrongColour)
     fontSize (em 1.3)
-    fontStyle italic
     fontWeight normal
 
   h1 # ".banner" ? do
@@ -334,7 +333,6 @@ headings = do
     display inline
     small ? do
       fontSize $ em 0.6
-      fontStyle italic
       fontWeight normal
       color softTextColour
 
