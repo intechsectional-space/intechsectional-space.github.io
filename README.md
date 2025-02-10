@@ -3,6 +3,7 @@
 ## Building locally
 
 ```shell
+nix develop
 cd src
 ./go
 ```
